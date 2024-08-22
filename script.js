@@ -4,6 +4,18 @@ document.body.appendChild(getSumBtn);
 
 const getSum = () => {
 //Add your code here
+	const prices = document.querySelectorAll('.prices');
+            let total = 0;
+            prices.forEach(price => {
+                total += parseFloat(price.textContent);
+            });
+
+            const totalRow = document.createElement('tr');
+            const totalCell = document.createElement('td');
+            totalCell.colSpan = 2;
+            totalCell.textContent = `Total Price: $${total.toFixed(2)}`;
+            totalRow.appendChild(totalCell);
+            document.getElementById('groceryTable').appendChild(totalRow);
   
 };
 
