@@ -1,6 +1,6 @@
  function calculateTotal() {
         // Get all price elements from the table
-        const priceElements = document.querySelectorAll(".prices");
+        const priceElements = document.querySelectorAll(".price");
 
         let total = 0;
 
