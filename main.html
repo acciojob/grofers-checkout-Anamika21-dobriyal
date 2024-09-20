@@ -21,24 +21,46 @@
       <tbody>
         <tr class="item">
           <td>Apple</td>
-          <td class="price">20</td>
+          <td class="prices">20</td>
         </tr>
         <tr class="item">
           <td>Banana</td>
-          <td class="price">10</td>
+          <td class="prices">10</td>
         </tr>
         <tr class="item">
           <td>Milk</td>
-          <td class="price">50</td>
+          <td class="prices">50</td>
         </tr>
       </tbody>
     </table>
 
-    <button id="ans" onclick="calculateTotal()">Calculate Total</button>
+    <button onclick="calculateTotal()">Calculate Total</button>
+	<script>
+        function calculateTotal() {
+        // Get all price elements from the table
+        const priceElements = document.querySelectorAll(".prices");
 
-    <script type="text/javascript" src="./script.js">
+        let total = 0;
+
+        // Sum up the prices
+        priceElements.forEach((priceElement) => {
+          total += parseFloat(priceElement.textContent);
+        });
+
+        // Create a new row for the total
+        const table = document.getElementById("groceryTable");
+        const totalRow = document.createElement("tr");
+
+        // Create a single cell to display the total price
+        const totalCell = document.createElement("td");
+        totalCell.colSpan = 2; // This spans across two columns
+        totalCell.textContent = `Total Price: ₹${total}`;
+
+        // Add the new cell to the row and append the row to the table
+        totalRow.appendChild(totalCell);
+        table.appendChild(totalRow);
+      }
 </script>
-
 </body>
 </html> 
 
